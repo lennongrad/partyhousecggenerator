@@ -1,0 +1,41 @@
+<div id="card-out" [style]="{width: cardWidth + 'px', height: cardHeight + 'px'}">
+    <div id="card-in" [style]="{width: innerCardWidth + 'px', height: innerCardHeight + 'px' }">
+        <div id="section-header" class="section" [style]="{fontSize: fontSizeLarge + 'px'}">
+            <div id="header-name">{{getName()}}</div>
+        </div>
+        <div id="stats-star" class="stats-image" [style]="{height: statIconSize * statModifier + 'px', opacity: getStat('star') == '0' ? 0 : 1}">
+            <img src="assets/star_icon.png" [style]="{width: statIconSize * 5 + 'px', height: statIconSize * 5 + 'px'}">
+        </div>
+        <div id="section-stats" [style]="{visibility: getStat('pop') != null ? 'visible' : 'hidden'}">
+            <div id="stats-pop" class="stats-item" [style]="{height: statIconSize * statModifier + 'px', opacity: getStat('pop') == '0' ? 0 : 1}">
+                <div class="stats-item-value" [style]="{fontSize: fontSizeHuge + 'px', lineHeight: fontSizeHuge * 0.75 + 'px', paddingBottom: getPaddingBottom('pop')}" [style.backgroundImage]="getPopBackgroundImage()">{{getStat("pop")}}</div>
+                <img src="assets/phone_icon.png" [style]="{width: realStatIconSize + 'px', height: realStatIconSize  + 'px'}">
+            </div>
+            <div id="stats-cash" class="stats-item" [style]="{height: statIconSize * statModifier + 'px', opacity: getStat('cash') == '0' ? 0 : 1}">
+                <div class="stats-item-value" [style]="{fontSize: fontSizeHuge + 'px', lineHeight: fontSizeHuge * 0.75 + 'px', paddingBottom: getPaddingBottom('cash')}" [style.backgroundImage]="getCashBackgroundImage()">{{getStat("cash")}}</div>
+                <img src="assets/register_icon.png" [style]="{width: realStatIconSize + 'px', height: realStatIconSize + 'px'}">
+            </div>
+            <div id="stats-trouble" class="stats-item" [style]="{height: statIconSize * statModifier + 'px', opacity: getStat('trouble') == '0' ? 0 : 1}">
+                <div class="stats-item-value" [style]="{fontSize: fontSizeHuge + 'px', lineHeight: fontSizeHuge * 0.75 + 'px', paddingBottom: getPaddingBottom('trouble')}" [style.backgroundImage]="getTroubleBackgroundImage()">{{getStat("trouble")}}</div>
+                <img src="assets/dove_icon.png" [style]="{width: realStatIconSize + 'px', height: realStatIconSize + + 'px'}">
+            </div>
+        </div>
+        <div id="section-art" class="section" [style.backgroundImage]="getBackgroundImage()">
+            <div id="art-image" [class.notext]="getTotalText() == 0">
+                <div id="art-shadow"></div>
+                <img [src]="getImageURL()"/>
+            </div>
+        </div>
+        <div id="section-textbox" class="section" [style]="{fontSize: fontSizeSmall * this.getCurrentCard().textSizeModifier + 'px', opacity: getTotalText() == 0 ? 0 : 1}">
+            <div id="textbox-main" [class.statless]="getStat('pop') == null ">
+                <div class="ability-reminder" *ngFor="let ability of getWithReminders() | keyvalue">
+                    <b >{{ability.key}}</b><i> ({{ability.value}})</i>
+                </div>
+                <div>{{getText()}}</div>
+            </div>
+        </div>
+        <div id="section-vp" [style]="{visibility: getVP() != null ? 'visible' : 'hidden'}">
+            <div id="vp-value" [style]="{fontSize: fontSizeLarge + 'px'}">{{getVP()}}</div>
+        </div>
+    </div>
+</div>
