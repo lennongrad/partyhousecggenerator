@@ -14,7 +14,6 @@ import { CommonModule, KeyValuePipe, NgForOf } from '@angular/common';
 export class CardEditorComponent {
   // text inputs
   @ViewChild('name', { static: true }) nameElement!: ElementRef;
-  @ViewChild('background', { static: true }) backgroundElement!: ElementRef;
   @ViewChild('url', { static: true }) urlElement!: ElementRef;
   @ViewChild('text', { static: true }) textElement!: ElementRef;
   @ViewChild('vp', { static: true }) vpElement!: ElementRef;
@@ -37,9 +36,6 @@ export class CardEditorComponent {
   // text inputs
   nameKey(event: any){
     this.getCard().name = event.target.value;
-  }
-  backgroundKey(event: any){
-    this.getCard().background = event.target.value;
   }
   urlKey(event: any){
     this.getCard().imageURL = event.target.value;
@@ -151,7 +147,6 @@ export class CardEditorComponent {
 
   loadCard(){
     this.nameElement.nativeElement.value = this.getCard().name;
-    this.backgroundElement.nativeElement.value = this.getCard().background;
     this.textElement.nativeElement.value = this.getCard().text;
     this.vpElement.nativeElement.value = this.getCard().vp == undefined ? "" : this.getCard().vp;
     this.textSizeElement.nativeElement.value = this.getCard().textSizeModifier;

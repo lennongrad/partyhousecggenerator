@@ -23,7 +23,6 @@ export interface CardData{
     text: string,
     name: string,
     imageURL: string,
-    background: string,
     vp?: number,
     unitStats?: UnitStats,
     textSizeModifier: number

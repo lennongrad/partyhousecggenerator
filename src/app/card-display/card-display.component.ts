@@ -72,20 +72,37 @@ export class CardDisplayComponent {
   }
 
   getPopBackgroundImage(): string {
-    return this.getCurrentCard().unitStats!.pop > 0 ? 'url("/assets/trap1.png")' : 'url("/assets/trap3.png")';
+    return this.getCurrentCard().unitStats!.pop > 0 ? 'url("./assets/trap1.png")' : 'url("./assets/trap3.png")';
   }
   getCashBackgroundImage(): string {
-    return this.getCurrentCard().unitStats!.cash > 0 ? 'url("/assets/trap2.png")' : 'url("/assets/trap3.png")';
+    return this.getCurrentCard().unitStats!.cash > 0 ? 'url("./assets/trap2.png")' : 'url("./assets/trap3.png")';
   }
   getTroubleBackgroundImage(): string {
-    return this.getCurrentCard().unitStats!.trouble < 0 ? 'url("/assets/trap4.png")' : 'url("/assets/trap5.png")';
+    return this.getCurrentCard().unitStats!.trouble < 0 ? 'url("./assets/trap4.png")' : 'url("./assets/trap5.png")';
+  }
+
+  getCardBackground(): string{
+    if(this.getCurrentCard().unitStats!.star > 0){
+      return "url('./assets/eighty5.png')";
+    }
+    if(this.getCurrentCard().unitStats!.trouble != 0){
+      return "url('./assets/eighty3.png')";
+    }
+    return "url('./assets/eighty.png')"
   }
 
   getBackgroundImage(): string{
-    if(this.getCurrentCard().background != "cash" && this.getCurrentCard().background != "star" && this.getCurrentCard().background != "trouble"){
-      return  `url('/assets/normal_checker.png')`;
+    if(this.getCurrentCard().unitStats!.star > 0){
+      return "url('./assets/star_checker.png')";
     }
-    return `url('/assets/${this.getCurrentCard().background}_checker.png')`;
+    if(this.getCurrentCard().unitStats!.trouble != 0){
+      return "url('./assets/trouble_checker.png')";
+    }
+    return "url('./assets/normal_checker.png')"
+    /*if(this.getCurrentCard().background != "cash" && this.getCurrentCard().background != "star" && this.getCurrentCard().background != "trouble"){
+      return  `url('./assets/normal_checker.png')`;
+    }
+    return `url('./assets/${this.getCurrentCard().background}_checker.png')`;*/
   }
 
   getTotalText(): number{

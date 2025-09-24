@@ -1,4 +1,4 @@
-<div id="card-out" [style]="{width: cardWidth + 'px', height: cardHeight + 'px'}">
+<div id="card-out" [style]="{width: cardWidth + 'px', height: cardHeight + 'px'}" [style.backgroundImage]="getCardBackground()">
     <div id="card-in" [style]="{width: innerCardWidth + 'px', height: innerCardHeight + 'px' }">
         <div id="section-header" class="section" [style]="{fontSize: fontSizeLarge + 'px'}">
             <div id="header-name">{{getName()}}</div>

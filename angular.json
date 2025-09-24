@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "../lennongrad.github.io/party-house/",
+            "outputPath": {"base": "../lennongrad.github.io/party-house/", "browser": ""},
             "baseHref": "/party-house/",
             "index": "src/index.html",
             "browser": "src/main.ts",

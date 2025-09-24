@@ -29,7 +29,6 @@ export class CardEditorService {
     vp: 0,
     abilities: [],
     text: "",
-    background: "",
     name: "",
     imageURL: "",
     textSizeModifier: 1
